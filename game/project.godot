@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "CollisionShape2D",
 "class": "Geometry2D",
 "language": "GDScript",
-"path": "res://utility/Geometry2D.gd"
+"path": "res://src/utility/Geometry2D.gd"
 } ]
 _global_script_class_icons={
 "Geometry2D": ""

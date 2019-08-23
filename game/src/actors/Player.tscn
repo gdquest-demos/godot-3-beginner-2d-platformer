@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://actors/Player.gd" type="Script" id=1]
-[ext_resource path="res://utility/Geometry2D.gd" type="Script" id=2]
+[ext_resource path="res://src/actors/Player.gd" type="Script" id=1]
+[ext_resource path="res://src/utility/Geometry2D.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 60 )
