@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://actors/StompingRay2D.gd" type="Script" id=1]
-
-[node name="StompingRay2D" type="RayCast2D"]
-enabled = true
-cast_to = Vector2( 0, 16 )
-collision_mask = 2
-script = ExtResource( 1 )
