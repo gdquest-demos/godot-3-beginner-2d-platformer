@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/actors/Player.gd" type="Script" id=1]
+[ext_resource path="res://src/utility/Geometry2D.gd" type="Script" id=2]
+[ext_resource path="res://src/actors/PickUpArea.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40, 60 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 40, 60 )
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+collision_mask = 6
+script = ExtResource( 1 )
+jump_impulse = 1300.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -60 )
+shape = SubResource( 1 )
+script = ExtResource( 2 )
+color = Color( 0.372549, 0.454902, 1, 1 )
+
+[node name="PickUpArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
+position = Vector2( 0, -60 )
+shape = SubResource( 2 )
+[connection signal="area_entered" from="PickUpArea" to="PickUpArea" method="_on_area_entered"]
