@@ -1,7 +1,9 @@
 extends Node
 
+
 onready var score_label: = $ScoreLabel
 onready var pause_overlay: = $PauseOverlay
+
 
 func _ready() -> void:
 	PlayerData.connect("updated", self, "update_interface")

@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/actors/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://src/utility/Geometry2D.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 50, 30 )
+
+[sub_resource type="SegmentShape2D" id=2]
+a = Vector2( -50, 0 )
+b = Vector2( 50, 0 )
+
+[sub_resource type="SegmentShape2D" id=3]
+a = Vector2( 0, -30 )
+b = Vector2( 0, 30 )
 
 [node name="Enemy" type="KinematicBody2D" groups=[
 "enemy",
@@ -18,3 +26,29 @@ position = Vector2( 0, -30 )
 shape = SubResource( 1 )
 script = ExtResource( 2 )
 color = Color( 1, 0.27451, 0.27451, 1 )
+
+[node name="StompArea2D" type="Area2D" parent="." groups=[
+"enemy-stomp",
+]]
+position = Vector2( 0, -61 )
+collision_layer = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea2D"]
+shape = SubResource( 2 )
+
+[node name="KillArea2D" type="Area2D" parent="." groups=[
+"enemy-kill",
+]]
+editor/display_folded = true
+position = Vector2( 0, -30 )
+collision_layer = 9
+collision_mask = 0
+
+[node name="LeftCollisionShape2D" type="CollisionShape2D" parent="KillArea2D"]
+position = Vector2( -51, 0 )
+shape = SubResource( 3 )
+
+[node name="RightCollisionShape2D2" type="CollisionShape2D" parent="KillArea2D"]
+position = Vector2( 51, 0 )
+shape = SubResource( 3 )
+[connection signal="body_entered" from="StompArea2D" to="." method="_on_StompArea2D_body_entered"]

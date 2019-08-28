@@ -1,26 +1,18 @@
-extends "res://src/actors/PlatformActor.gd"
+extends "res://src/actors/Actor.gd"
+
 
 export var score: = 100
 
+
 func _ready() -> void:
-	_linear_velocity.x = -movement_speed
-
-
-func handle_collision() -> void:
-	if get_slide_count() < 1:
-		return
-	var collider: = get_slide_collision(0).collider
-	var normal: = get_slide_collision(0).normal
-	
-	if is_on_wall():
-		if collider.is_in_group("player"):
-			collider.get_hurt()
-		_linear_velocity.x = movement_speed * normal.x
-	elif is_on_floor() and collider.is_in_group("player"):
-		collider.get_hurt()
-		
+	_linear_velocity.x = -speed.x
 
 
 func get_hurt() -> void:
 	PlayerData.score += score
 	queue_free()
+
+
+func _on_StompArea2D_body_entered(body: PhysicsBody2D) -> void:
+	if body.is_in_group("player"):
+		get_hurt()

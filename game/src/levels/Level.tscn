@@ -18,7 +18,7 @@ tile_data = PoolIntArray( 0, 0, 0, 23, 0, 0, 65536, 0, 0, 65559, 0, 0, 131072, 0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1010, 530 )
-movement_speed = 600.0
+speed = Vector2( 600, 1300 )
 
 [node name="Portal2D" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1750, 800 )

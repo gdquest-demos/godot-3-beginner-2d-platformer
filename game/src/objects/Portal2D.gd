@@ -1,14 +1,8 @@
 tool
 extends Area2D
 
-export(String, FILE, "*.tscn") var next_level
 
-func teleport() -> void:
-	if Engine.editor_hint:
-		return
-	$AnimationPlayer.play("FadeOut")
-	yield($AnimationPlayer, "animation_finished")
-	get_tree().change_scene(next_level)
+export(String, FILE, "*.tscn") var next_level
 
 
 func _on_body_entered(body: PhysicsBody2D):
@@ -16,5 +10,10 @@ func _on_body_entered(body: PhysicsBody2D):
 
 
 func _get_configuration_warning() -> String:
-	return "The property Next Level can't be empty" if not next_level else ""
-	
+	return "The property Next Level can't be empty" if next_level == "" else ""
+
+
+func teleport() -> void:
+	$AnimationPlayer.play("FadeOut")
+	yield($AnimationPlayer, "animation_finished")
+	get_tree().change_scene(next_level)
