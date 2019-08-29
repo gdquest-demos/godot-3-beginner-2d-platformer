@@ -34,7 +34,7 @@ func get_direction() -> Vector2:
 func move_by_direction(linear_velocity: Vector2, direction: Vector2, speed: Vector2, is_jump_interrupted: bool) -> Vector2:
 	var out: = linear_velocity
 	out.x = speed.x * direction.x
-	out.y = out.y if direction.y == 0 else speed.y * direction.y
+	out.y = speed.y * direction.y if direction.y != 0 else out.y
 	out.y = 0.0 if is_jump_interrupted else out.y
 	return out
 
