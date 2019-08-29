@@ -29,6 +29,9 @@ next_level_scene = "res://src/levels/Level.tscn"
 [node name="Coin" parent="Coins" instance=ExtResource( 4 )]
 position = Vector2( 480, 450 )
 
+[node name="Coin2" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 600, 390 )
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 5 )]
