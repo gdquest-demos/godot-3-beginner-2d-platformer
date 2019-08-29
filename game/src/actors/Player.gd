@@ -8,7 +8,7 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy-kill"):
 		queue_free()
 	elif area.is_in_group("enemy-stomp"):
-		_linear_velocity = stomp(_linear_velocity)
+		_linear_velocity = move_by_stomp(_linear_velocity)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -39,5 +39,5 @@ func move_by_direction(linear_velocity: Vector2, direction: Vector2, speed: Vect
 	return out
 
 
-func stomp(linear_velocity: Vector2) -> Vector2:
+func move_by_stomp(linear_velocity: Vector2) -> Vector2:
 	return Vector2(linear_velocity.x, linear_velocity.y - stomp_hop_force)
