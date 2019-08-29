@@ -22,7 +22,7 @@ speed = Vector2( 600, 1300 )
 
 [node name="Portal2D" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1750, 800 )
-next_level = "res://src/levels/Level.tscn"
+next_level_scene = "res://src/levels/Level.tscn"
 
 [node name="Coins" type="Node2D" parent="."]
 

@@ -1,8 +1,9 @@
 extends Node
 
 
-onready var score_label: = $ScoreLabel
-onready var pause_overlay: = $PauseOverlay
+onready var scene_tree: SceneTree = get_tree()
+onready var score_label: Label = $ScoreLabel
+onready var pause_overlay: ColorRect = $PauseOverlay
 
 
 func _ready() -> void:
@@ -11,18 +12,18 @@ func _ready() -> void:
 
 
 func _on_RetryButton_button_up() -> void:
-	get_tree().reload_current_scene()
+	scene_tree.reload_current_scene()
+	toggle_game_pause()
 
 
 func _on_QuitButton_button_up() -> void:
-	get_tree().quit()
+	scene_tree.quit()
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_action_pressed("pause"):
 		return
 	toggle_game_pause()
-	get_tree().set_input_as_handled()
 
 
 func update_interface() -> void:
@@ -30,5 +31,5 @@ func update_interface() -> void:
 
 
 func toggle_game_pause() -> void:
-	get_tree().paused = not get_tree().paused
-	pause_overlay.visible = get_tree().paused
+	scene_tree.paused = not scene_tree.paused
+	pause_overlay.visible = scene_tree.paused

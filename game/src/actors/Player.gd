@@ -1,5 +1,6 @@
 extends "res://src/actors/Actor.gd"
 
+
 export var stomp_hop_force: = 600.0
 
 
@@ -16,9 +17,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	var is_jump_interrupted: = event.is_action_released("jump") and _linear_velocity.y < 0
 	var direction: = get_direction()
-	_linear_velocity = apply_direction(_linear_velocity, direction, speed, is_jump_interrupted)
-	
-	get_tree().set_input_as_handled()
+	_linear_velocity = move_by_direction(_linear_velocity, direction, speed, is_jump_interrupted)
 
 
 func is_valid_input(event: InputEvent) -> bool:
@@ -32,7 +31,7 @@ func get_direction() -> Vector2:
 	)
 
 
-func apply_direction(linear_velocity: Vector2, direction: Vector2, speed: Vector2, is_jump_interrupted: bool) -> Vector2:
+func move_by_direction(linear_velocity: Vector2, direction: Vector2, speed: Vector2, is_jump_interrupted: bool) -> Vector2:
 	var out: = linear_velocity
 	out.x = speed.x * direction.x
 	out.y = out.y if direction.y == 0 else speed.y * direction.y
