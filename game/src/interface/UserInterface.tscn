@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/interface/UserInterface.gd" type="Script" id=1]
+[ext_resource path="res://src/interface/default_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/interface/TitleLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/interface/SceneChangeButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/interface/QuitButton.tscn" type="PackedScene" id=5]
 
 [node name="UserInterface" type="Control"]
 pause_mode = 2
@@ -15,7 +19,8 @@ margin_left = -380.0
 margin_top = 50.0
 margin_right = -50.0
 margin_bottom = 150.0
-text = "Score: 0000"
+custom_fonts/font = ExtResource( 2 )
+text = "Score: %s"
 valign = 1
 
 [node name="PauseOverlay" type="ColorRect" parent="."]
@@ -24,6 +29,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0.321569 )
+
+[node name="TitleLabel" parent="PauseOverlay" instance=ExtResource( 3 )]
+margin_top = 150.0
+margin_bottom = 320.0
+text = "Paused"
 
 [node name="PauseMenu" type="VBoxContainer" parent="PauseOverlay"]
 anchor_left = 0.5
@@ -35,23 +45,24 @@ margin_top = -135.0
 margin_right = 135.0
 margin_bottom = 135.0
 
-[node name="Title" type="Label" parent="PauseOverlay/PauseMenu"]
-margin_right = 270.0
-margin_bottom = 14.0
-text = "PAUSED"
-align = 1
-valign = 1
-
 [node name="RetryButton" type="Button" parent="PauseOverlay/PauseMenu"]
-margin_top = 18.0
-margin_right = 270.0
-margin_bottom = 38.0
+margin_right = 274.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
 text = "Retry"
 
-[node name="QuitButton" type="Button" parent="PauseOverlay/PauseMenu"]
-margin_top = 42.0
-margin_right = 270.0
-margin_bottom = 62.0
-text = "Quit"
+[node name="MainScreenButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 4 )]
+margin_top = 91.0
+margin_right = 274.0
+margin_bottom = 178.0
+text = "Back to Main Screen"
+next_screen_scene = "res://src/screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 5 )]
+margin_top = 182.0
+margin_right = 274.0
+margin_bottom = 270.0
 [connection signal="button_up" from="PauseOverlay/PauseMenu/RetryButton" to="." method="_on_RetryButton_button_up"]
-[connection signal="button_up" from="PauseOverlay/PauseMenu/QuitButton" to="." method="_on_QuitButton_button_up"]
+[connection signal="button_up" from="PauseOverlay/PauseMenu/MainScreenButton" to="." method="_on_MainScreenButton_button_up"]

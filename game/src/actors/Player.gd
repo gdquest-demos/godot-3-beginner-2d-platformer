@@ -6,6 +6,7 @@ export var stomp_hop_force: = 600.0
 
 func _on_Area2D_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy-kill"):
+		PlayerData.deaths += 1
 		queue_free()
 	elif area.is_in_group("enemy-stomp"):
 		_linear_velocity = move_by_stomp(_linear_velocity, stomp_hop_force)
