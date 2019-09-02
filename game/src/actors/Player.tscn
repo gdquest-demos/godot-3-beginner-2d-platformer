@@ -14,6 +14,7 @@ extents = Vector2( 40, 60 )
 ]]
 collision_mask = 6
 script = ExtResource( 1 )
+speed = Vector2( 600, 1350 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -60 )

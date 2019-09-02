@@ -41,4 +41,5 @@ func move_by_direction(linear_velocity: Vector2, direction: Vector2, speed: Vect
 
 
 func move_by_stomp(linear_velocity: Vector2, stomp_hop_force: float) -> Vector2:
-	return Vector2(linear_velocity.x, linear_velocity.y - stomp_hop_force)
+	var stomp_jump: = -speed.y if Input.is_action_pressed("jump") else -stomp_hop_force
+	return Vector2(linear_velocity.x, stomp_jump)
