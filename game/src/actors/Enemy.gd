@@ -5,6 +5,7 @@ export var score: = 100
 
 
 func _ready() -> void:
+	set_physics_process(false)
 	_linear_velocity.x = -speed.x
 
 
