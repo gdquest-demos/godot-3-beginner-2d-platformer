@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Your First Game: 2d Platformer"
-run/main_scene="res://src/Game.tscn"
+run/main_scene="res://src/screens/MainScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]

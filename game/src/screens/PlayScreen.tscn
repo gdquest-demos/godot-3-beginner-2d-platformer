@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/Game.gd" type="Script" id=1]
 [ext_resource path="res://src/interface/UserInterface.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/levels/Level.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/levels/Level-01.tscn" type="PackedScene" id=3]
 
 [node name="PlayScreen" type="Control"]
 anchor_right = 1.0
