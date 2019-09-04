@@ -47,7 +47,7 @@ margin_bottom = 79.0
 [node name="PlayButton" parent="Menu" instance=ExtResource( 4 )]
 margin_right = 360.0
 margin_bottom = 75.0
-text = "Play"
+text = "Play Again"
 next_screen_scene = "res://src/screens/PlayScreen.tscn"
 
 [node name="QuitButton" parent="Menu" instance=ExtResource( 5 )]
