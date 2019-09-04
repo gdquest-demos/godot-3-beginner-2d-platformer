@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/screens/EndScreen.gd" type="Script" id=1]
 [ext_resource path="res://src/interface/TitleLabel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/interface/default_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/default_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://src/interface/SceneChangeButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/interface/QuitButton.tscn" type="PackedScene" id=5]
 
@@ -47,8 +47,8 @@ margin_bottom = 79.0
 [node name="PlayButton" parent="Menu" instance=ExtResource( 4 )]
 margin_right = 360.0
 margin_bottom = 75.0
-text = "Play"
-next_screen_scene = "res://src/screens/PlayScreen.tscn"
+text = "Play Again"
+next_screen_scene = "res://src/levels/Level-01.tscn"
 
 [node name="QuitButton" parent="Menu" instance=ExtResource( 5 )]
 margin_top = 79.0

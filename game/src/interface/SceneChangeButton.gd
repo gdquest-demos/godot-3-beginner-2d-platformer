@@ -1,9 +1,12 @@
 tool
 extends Button
 
+
 export(String, FILE, "*.tscn") var next_screen_scene
 
+
 func _on_button_up() -> void:
+	PlayerData.reset()
 	get_tree().change_scene(next_screen_scene)
 
 

@@ -5,6 +5,7 @@ onready var scene_tree: SceneTree = get_tree()
 onready var score_label: Label = $ScoreLabel
 onready var pause_overlay: ColorRect = $PauseOverlay
 onready var title_label: Label = $PauseOverlay/TitleLabel
+onready var main_screen_button: Button = $PauseOverlay/PauseMenu/MainScreenButton
 
 
 func _ready() -> void:
@@ -16,15 +17,6 @@ func _ready() -> void:
 func _on_Player_died() -> void:
 	toggle_game_pause()
 	title_label.text = "You died"
-
-
-func _on_RetryButton_button_up() -> void:
-	scene_tree.reload_current_scene()
-	toggle_game_pause()
-
-
-func _on_QuitButton_button_up() -> void:
-	scene_tree.quit()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -40,7 +32,3 @@ func update_interface() -> void:
 func toggle_game_pause() -> void:
 	scene_tree.paused = not scene_tree.paused
 	pause_overlay.visible = scene_tree.paused
-
-
-func _on_MainScreenButton_button_up() -> void:
-	toggle_game_pause()
