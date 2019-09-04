@@ -1,10 +1,12 @@
 extends Node
 
+
 signal updated
 signal died
 
 var score: = 0 setget set_score
 var deaths: = 0 setget set_deaths
+
 
 func reset():
 	score = 0
