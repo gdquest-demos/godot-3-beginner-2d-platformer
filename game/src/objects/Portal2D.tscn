@@ -3,8 +3,9 @@
 [ext_resource path="res://src/objects/Portal2D.gd" type="Script" id=1]
 [ext_resource path="res://assets/portal.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 90, 130 )
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 83.0
+height = 93.4486
 
 [sub_resource type="Animation" id=2]
 resource_name = "FadeOut"

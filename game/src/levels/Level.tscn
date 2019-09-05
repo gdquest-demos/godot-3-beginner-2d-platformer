@@ -9,6 +9,7 @@
 [node name="Level" type="Node2D"]
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 layer = -1
 
 [node name="Sprite" type="Sprite" parent="BackgroundLayer"]

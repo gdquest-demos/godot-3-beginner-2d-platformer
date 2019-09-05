@@ -4,11 +4,11 @@
 [ext_resource path="res://assets/enemy.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 44, 33 )
+extents = Vector2( 50, 33 )
 
 [sub_resource type="SegmentShape2D" id=2]
-a = Vector2( -44, 0 )
-b = Vector2( 44, 0 )
+a = Vector2( -40, 0 )
+b = Vector2( 40, 0 )
 
 [sub_resource type="SegmentShape2D" id=3]
 a = Vector2( 0, -15 )
@@ -59,11 +59,11 @@ collision_layer = 9
 collision_mask = 0
 
 [node name="LeftCollisionShape2D" type="CollisionShape2D" parent="KillArea2D"]
-position = Vector2( -53, 0 )
+position = Vector2( -65, 0 )
 shape = SubResource( 3 )
 
 [node name="RightCollisionShape2D2" type="CollisionShape2D" parent="KillArea2D"]
-position = Vector2( 53, 0 )
+position = Vector2( 65, 0 )
 shape = SubResource( 3 )
 
 [node name="BumpArea2D" type="Area2D" parent="."]
@@ -79,9 +79,8 @@ position = Vector2( 90, 0 )
 shape = SubResource( 4 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-position = Vector2( -4.76837e-07, -32.8242 )
-scale = Vector2( 0.873477, 1.09414 )
-rect = Rect2( -50, -30, 100, 60 )
+position = Vector2( 0, -33 )
+rect = Rect2( -50, -33, 100, 66 )
 process_parent = true
 physics_process_parent = true
 script = SubResource( 5 )
