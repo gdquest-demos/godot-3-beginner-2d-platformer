@@ -1,8 +1,8 @@
 extends Control
 
 
-onready var data_label: Label = $DataLabel
+onready var result: Label = $Result
 
 
 func _ready() -> void:
-	data_label.text = data_label.text % [PlayerData.score, PlayerData.deaths]
+	result.text = result.text % [PlayerData.score, PlayerData.deaths]
