@@ -9,12 +9,14 @@
 [node name="LevelTest" type="Node2D"]
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 layer = -1
 
-[node name="Sprite" type="Sprite" parent="BackgroundLayer"]
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 1 )
-centered = false
+expand = true
+stretch_mode = 2
 
 [node name="InterfaceLayer" type="CanvasLayer" parent="."]
 editor/display_folded = true
@@ -46,7 +48,7 @@ editor_draw_drag_margin = true
 
 [node name="Portal2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1750, 800 )
-next_level_scene = "res://src/levels/Level.tscn"
+next_level_scene = "res://src/levels/Level02.tscn"
 
 [node name="Coins" type="Node2D" parent="."]
 
