@@ -12,11 +12,8 @@ func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 	die()
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if not (event.is_action("move_left") or event.is_action("move_right") or event.is_action("jump")):
-		return
-
-	var is_jump_interrupted: = event.is_action_released("jump") and _linear_velocity.y < 0
+func _physics_process(delta: float) -> void:
+	var is_jump_interrupted: = Input.is_action_just_released("jump") and _linear_velocity.y < 0
 	var direction: = get_direction()
 	_linear_velocity = calculate_move_velocity(_linear_velocity, direction, speed, is_jump_interrupted)
 
@@ -29,7 +26,7 @@ func die() -> void:
 func get_direction() -> Vector2:
 	return Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		-Input.get_action_strength("jump") if is_on_floor() else 0.0
+		-Input.get_action_strength("jump") if is_on_floor() and Input.is_action_just_pressed("jump") else 0.0
 	)
 
 
