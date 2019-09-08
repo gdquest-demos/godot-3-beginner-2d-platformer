@@ -7,6 +7,8 @@ onready var pause_overlay: ColorRect = $PauseOverlay
 onready var title_label: Label = $PauseOverlay/TitleLabel
 onready var main_screen_button: Button = $PauseOverlay/PauseMenu/MainScreenButton
 
+var paused: = false setget set_paused
+
 
 func _ready() -> void:
 	PlayerData.connect("updated", self, "update_interface")
@@ -15,20 +17,20 @@ func _ready() -> void:
 
 
 func _on_Player_died() -> void:
-	toggle_game_pause()
+	self.paused = true
 	title_label.text = "You died"
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not event.is_action_pressed("pause"):
-		return
-	toggle_game_pause()
+	if event.is_action_pressed("pause"):
+		self.paused = not self.paused
 
 
 func update_interface() -> void:
 	score_label.text = "Score: %s" % PlayerData.score
 
 
-func toggle_game_pause() -> void:
-	scene_tree.paused = not scene_tree.paused
-	pause_overlay.visible = scene_tree.paused
+func set_paused(value: bool) -> void:
+	paused = value
+	scene_tree.paused = value
+	pause_overlay.visible = value
