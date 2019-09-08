@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://src/interface/UserInterface.gd" type="Script" id=1]
-[ext_resource path="res://assets/default_font.tres" type="DynamicFont" id=2]
-[ext_resource path="res://src/interface/TitleLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/interface/UserInterface.gd" type="Script" id=2]
+[ext_resource path="res://src/interface/Title.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/interface/RetryButton.gd" type="Script" id=4]
 [ext_resource path="res://src/interface/SceneChangeButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/interface/QuitButton.tscn" type="PackedScene" id=6]
@@ -11,16 +11,16 @@
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
 
-[node name="ScoreLabel" type="Label" parent="."]
+[node name="Score" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -380.0
 margin_top = 50.0
 margin_right = -50.0
 margin_bottom = 150.0
-custom_fonts/font = ExtResource( 2 )
 text = "Score: %s"
 valign = 1
 
@@ -31,7 +31,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0.321569 )
 
-[node name="TitleLabel" parent="PauseOverlay" instance=ExtResource( 3 )]
+[node name="Title" parent="PauseOverlay" instance=ExtResource( 3 )]
 margin_top = 150.0
 margin_bottom = 320.0
 text = "Paused"
@@ -51,7 +51,6 @@ margin_right = 274.0
 margin_bottom = 87.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 2 )
 text = "Retry"
 script = ExtResource( 4 )
 
@@ -60,7 +59,7 @@ margin_top = 91.0
 margin_right = 274.0
 margin_bottom = 178.0
 text = "Back to Main Screen"
-next_screen_scene = "res://src/screens/MainScreen.tscn"
+next_scene = "res://src/screens/MainScreen.tscn"
 
 [node name="QuitButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 6 )]
 margin_top = 182.0
