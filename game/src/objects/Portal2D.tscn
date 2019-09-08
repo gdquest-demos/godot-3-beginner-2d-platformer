@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/objects/Portal2D.gd" type="Script" id=1]
 [ext_resource path="res://assets/portal.png" type="Texture" id=2]
@@ -6,6 +6,22 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 83.0
 height = 93.4486
+
+[sub_resource type="Animation" id=3]
+resource_name = "START"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "fade_out"
@@ -37,6 +53,8 @@ position = Vector2( 0, -130 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "START"
+anims/START = SubResource( 3 )
 anims/fade_out = SubResource( 2 )
 
 [node name="TransitionLayer" type="CanvasLayer" parent="."]
@@ -46,5 +64,5 @@ layer = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
