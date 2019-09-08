@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/actors/Player.gd" type="Script" id=1]
-[ext_resource path="res://src/utility/Geometry2D.gd" type="Script" id=2]
+[ext_resource path="res://assets/player.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40, 60 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 40, 60 )
+extents = Vector2( 46.6856, 45.8158 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -16,17 +13,19 @@ collision_mask = 6
 script = ExtResource( 1 )
 speed = Vector2( 600, 1350 )
 
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+offset = Vector2( 0, -48.3333 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -60 )
+position = Vector2( 0, -48.3333 )
 shape = SubResource( 1 )
-script = ExtResource( 2 )
-color = Color( 0.372549, 0.454902, 1, 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, -60 )
-shape = SubResource( 2 )
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -48.3333 )
+shape = SubResource( 1 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
