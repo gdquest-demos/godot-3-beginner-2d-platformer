@@ -9,13 +9,13 @@ func _ready() -> void:
 	_linear_velocity.x = -speed.x
 
 
+func _physics_process(delta: float) -> void:
+	_linear_velocity.x *= -1 if is_on_wall() else 1
+
+
 func _on_StompArea2D_body_entered(body: PhysicsBody2D) -> void:
 	if body.is_in_group("player"):
 		die()
-
-
-func _on_BumpArea2D_body_shape_entered(body_id: int, body: PhysicsBody2D, body_shape: int, area_shape: int) -> void:
-	_linear_velocity.x = speed.x if area_shape == 0 else -speed.x
 
 
 func die() -> void:
