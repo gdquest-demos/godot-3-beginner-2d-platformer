@@ -7,8 +7,7 @@ export var score: = 100
 
 
 func _on_body_entered(body: PhysicsBody2D) -> void:
-	if body.is_in_group("player"):
-		picked()
+	picked()
 
 
 func picked() -> void:
