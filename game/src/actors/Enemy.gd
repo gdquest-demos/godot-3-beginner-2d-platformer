@@ -14,8 +14,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_StompArea2D_body_entered(body: PhysicsBody2D) -> void:
-	if body.is_in_group("player"):
-		die()
+	die()
 
 
 func die() -> void:

@@ -4,12 +4,12 @@ extends "res://src/actors/Actor.gd"
 export var stomp_impulse: = 600.0
 
 
-func _on_Area2D_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enemy-kill"):
-		PlayerData.deaths += 1
-		queue_free()
-	elif area.is_in_group("enemy-stomp"):
-		_linear_velocity = calculate_stomp_velocity(_linear_velocity, stomp_impulse)
+func _on_EnemyDetector_area_entered(area: Area2D) -> void:
+	_linear_velocity = calculate_stomp_velocity(_linear_velocity, stomp_impulse)
+
+
+func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
+	die()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -19,6 +19,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	var is_jump_interrupted: = event.is_action_released("jump") and _linear_velocity.y < 0
 	var direction: = get_direction()
 	_linear_velocity = calculate_move_velocity(_linear_velocity, direction, speed, is_jump_interrupted)
+
+
+func die() -> void:
+	PlayerData.deaths += 1
+	queue_free()
 
 
 func get_direction() -> Vector2:

@@ -1,18 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/actors/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemy.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 50, 33 )
+extents = Vector2( 40, 27 )
 
-[sub_resource type="SegmentShape2D" id=2]
-a = Vector2( -40, 0 )
-b = Vector2( 40, 0 )
-
-[sub_resource type="SegmentShape2D" id=3]
-a = Vector2( 0, -15 )
-b = Vector2( 0, 30 )
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 40, 4.9953 )
 
 [sub_resource type="GDScript" id=5]
 script/source = "extends VisibilityEnabler2D
@@ -23,9 +18,7 @@ func _on_VisibilityEnabler2D_screen_entered() -> void:
 	print(\"test\")
 "
 
-[node name="Enemy" type="KinematicBody2D" groups=[
-"enemy",
-]]
+[node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource( 1 )
@@ -35,34 +28,15 @@ position = Vector2( 0, -44.9277 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -33 )
+position = Vector2( 0, -27 )
 shape = SubResource( 1 )
 
-[node name="StompArea2D" type="Area2D" parent="." groups=[
-"enemy-stomp",
-]]
-editor/display_folded = true
-collision_layer = 9
+[node name="StompArea2D" type="Area2D" parent="."]
+position = Vector2( 0, -70 )
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea2D"]
-position = Vector2( 0, -68 )
-shape = SubResource( 2 )
-
-[node name="KillArea2D" type="Area2D" parent="." groups=[
-"enemy-kill",
-]]
-editor/display_folded = true
-position = Vector2( 0, -30 )
-collision_layer = 9
-collision_mask = 0
-
-[node name="LeftCollisionShape2D" type="CollisionShape2D" parent="KillArea2D"]
-position = Vector2( -65, 0 )
-shape = SubResource( 3 )
-
-[node name="RightCollisionShape2D2" type="CollisionShape2D" parent="KillArea2D"]
-position = Vector2( 65, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 position = Vector2( 0, -33 )
