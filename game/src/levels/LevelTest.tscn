@@ -6,7 +6,7 @@
 [ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/objects/Portal2D.tscn" type="PackedScene" id=5]
 
-[node name="Level" type="Node2D"]
+[node name="LevelTest" type="Node2D"]
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 editor/display_folded = true
