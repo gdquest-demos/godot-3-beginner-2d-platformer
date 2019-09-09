@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://src/interface/UserInterface.gd" type="Script" id=2]
 [ext_resource path="res://src/interface/Title.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/interface/RetryButton.gd" type="Script" id=4]
+[ext_resource path="res://src/interface/RetryButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/interface/SceneChangeButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/interface/QuitButton.tscn" type="PackedScene" id=6]
 
@@ -46,13 +46,7 @@ margin_top = -135.0
 margin_right = 135.0
 margin_bottom = 135.0
 
-[node name="RetryButton" type="Button" parent="PauseOverlay/PauseMenu"]
-margin_right = 274.0
-margin_bottom = 87.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Retry"
-script = ExtResource( 4 )
+[node name="RetryButton2" parent="PauseOverlay/PauseMenu" instance=ExtResource( 4 )]
 
 [node name="MainScreenButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 5 )]
 margin_top = 91.0
@@ -65,4 +59,3 @@ next_scene = "res://src/screens/MainScreen.tscn"
 margin_top = 182.0
 margin_right = 274.0
 margin_bottom = 270.0
-[connection signal="button_up" from="PauseOverlay/PauseMenu/RetryButton" to="PauseOverlay/PauseMenu/RetryButton" method="_on_button_up"]
