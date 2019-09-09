@@ -23,11 +23,11 @@ position = Vector2( 0, -27 )
 shape = SubResource( 1 )
 
 [node name="StompArea2D" type="Area2D" parent="."]
-position = Vector2( 0, -70 )
-collision_layer = 0
-collision_mask = 16
+position = Vector2( 0, -77.1868 )
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea2D"]
+position = Vector2( 0, 10.2668 )
 shape = SubResource( 2 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]

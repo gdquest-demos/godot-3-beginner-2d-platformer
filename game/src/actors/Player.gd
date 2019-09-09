@@ -5,6 +5,8 @@ export var stomp_impulse: = 600.0
 
 
 func _on_StompingArea2D_area_entered(area: Area2D) -> void:
+	if _linear_velocity.y < 0.0:
+		return
 	_linear_velocity = calculate_stomp_velocity(_linear_velocity, stomp_impulse)
 
 

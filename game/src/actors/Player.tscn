@@ -35,10 +35,11 @@ position = Vector2( 0, -48 )
 shape = SubResource( 2 )
 
 [node name="StompingArea2D" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 16
+position = Vector2( 0, -10 )
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompingArea2D"]
+position = Vector2( 0, 10 )
 shape = SubResource( 3 )
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
 [connection signal="area_entered" from="StompingArea2D" to="." method="_on_StompingArea2D_area_entered"]
