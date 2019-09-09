@@ -44,6 +44,7 @@ margin_bottom = 79.0
 margin_right = 360.0
 margin_bottom = 75.0
 text = "Play Again"
+next_scene = "res://src/levels/Level01.tscn"
 
 [node name="QuitButton" parent="Menu" instance=ExtResource( 6 )]
 margin_top = 79.0
