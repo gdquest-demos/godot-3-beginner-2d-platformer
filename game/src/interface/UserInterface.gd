@@ -2,9 +2,9 @@ extends Node
 
 
 onready var scene_tree: SceneTree = get_tree()
-onready var score_label: Label = $ScoreLabel
+onready var score_label: Label = $Score
 onready var pause_overlay: ColorRect = $PauseOverlay
-onready var title_label: Label = $PauseOverlay/TitleLabel
+onready var title_label: Label = $PauseOverlay/Title
 onready var main_screen_button: Button = $PauseOverlay/PauseMenu/MainScreenButton
 
 var paused: = false setget set_paused
