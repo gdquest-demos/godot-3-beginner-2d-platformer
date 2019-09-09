@@ -13,7 +13,7 @@ func _physics_process(delta: float) -> void:
 	_linear_velocity.x *= -1 if is_on_wall() else 1
 
 
-func _on_StompArea2D_body_entered(body: PhysicsBody2D) -> void:
+func _on_StompArea2D_area_entered(area: PhysicsBody2D) -> void:
 	die()
 
 

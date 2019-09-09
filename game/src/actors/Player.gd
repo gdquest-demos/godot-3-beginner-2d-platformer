@@ -4,7 +4,7 @@ extends "res://src/actors/Actor.gd"
 export var stomp_impulse: = 600.0
 
 
-func _on_EnemyDetector_area_entered(area: Area2D) -> void:
+func _on_StompingArea2D_area_entered(area: Area2D) -> void:
 	_linear_velocity = calculate_stomp_velocity(_linear_velocity, stomp_impulse)
 
 

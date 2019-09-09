@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/actors/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemy.png" type="Texture" id=2]
@@ -6,17 +6,8 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 27 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 40, 4.9953 )
-
-[sub_resource type="GDScript" id=5]
-script/source = "extends VisibilityEnabler2D
-
-
-
-func _on_VisibilityEnabler2D_screen_entered() -> void:
-	print(\"test\")
-"
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 50, 10 )
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
@@ -33,15 +24,15 @@ shape = SubResource( 1 )
 
 [node name="StompArea2D" type="Area2D" parent="."]
 position = Vector2( 0, -70 )
-collision_layer = 2
+collision_layer = 0
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea2D"]
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 position = Vector2( 0, -33 )
 rect = Rect2( -50, -33, 100, 66 )
 process_parent = true
 physics_process_parent = true
-script = SubResource( 5 )
-[connection signal="body_entered" from="StompArea2D" to="." method="_on_StompArea2D_body_entered"]
+[connection signal="area_entered" from="StompArea2D" to="." method="_on_StompArea2D_area_entered"]
