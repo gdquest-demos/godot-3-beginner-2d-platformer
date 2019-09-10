@@ -16,6 +16,7 @@ extents = Vector2( 50, 10 )
 collision_mask = 6
 script = ExtResource( 1 )
 speed = Vector2( 600, 1350 )
+stomp_impulse = 1400.0
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
