@@ -4,10 +4,8 @@ extends "res://src/actors/Actor.gd"
 export var stomp_impulse: = 600.0
 
 
-func _on_StompingArea2D_area_entered(area: Area2D) -> void:
-	if _linear_velocity.y < 0.0:
-		return
-	_linear_velocity = calculate_stomp_velocity(_linear_velocity, stomp_impulse)
+func _on_EnemyDetector_area_entered(area: Area2D) -> void:
+	_velocity = calculate_stomp_velocity(_velocity, stomp_impulse)
 
 
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
@@ -15,9 +13,9 @@ func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var is_jump_interrupted: = Input.is_action_just_released("jump") and _linear_velocity.y < 0
+	var is_jump_interrupted: = Input.is_action_just_released("jump") and _velocity.y < 0
 	var direction: = get_direction()
-	_linear_velocity = calculate_move_velocity(_linear_velocity, direction, speed, is_jump_interrupted)
+	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
 
 
 func die() -> void:
@@ -38,11 +36,11 @@ func calculate_move_velocity(
 		speed: Vector2,
 		is_jump_interrupted: bool
 	) -> Vector2:
-	var out: = linear_velocity
-	out.x = speed.x * direction.x
-	out.y = speed.y * direction.y if direction.y != 0 else out.y
-	out.y = 0.0 if is_jump_interrupted else out.y
-	return out
+	var velocity: = linear_velocity
+	velocity.x = speed.x * direction.x
+	velocity.y = speed.y * direction.y if direction.y != 0 else velocity.y
+	velocity.y = 0.0 if is_jump_interrupted else velocity.y
+	return velocity
 
 
 func calculate_stomp_velocity(linear_velocity: Vector2, stomp_impulse: float) -> Vector2:
