@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/enemy.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40, 27 )
+extents = Vector2( 40, 34 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 40, 4.9953 )
@@ -19,14 +19,15 @@ position = Vector2( 0, -44.9277 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -27 )
+position = Vector2( 0, -34 )
 shape = SubResource( 1 )
 
 [node name="StompArea2D" type="Area2D" parent="."]
-position = Vector2( 0, -77.1868 )
+position = Vector2( 0, -66.4549 )
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea2D"]
+position = Vector2( 0, -4.93669 )
 shape = SubResource( 2 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
