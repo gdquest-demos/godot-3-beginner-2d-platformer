@@ -1,4 +1,4 @@
-extends "res://src/actors/Actor.gd"
+extends Actor
 
 
 export var stomp_impulse: = 600.0

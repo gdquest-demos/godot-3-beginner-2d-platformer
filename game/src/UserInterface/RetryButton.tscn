@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://src/interface/RetryButton.gd" type="Script" id=1]
+[ext_resource path="res://src/UserInterface/RetryButton.gd" type="Script" id=1]
+
+
 
 [node name="RetryButton" type="Button"]
 margin_right = 274.0

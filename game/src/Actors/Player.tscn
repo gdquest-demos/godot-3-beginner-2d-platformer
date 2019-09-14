@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/actors/Player.gd" type="Script" id=1]
+[ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -20,7 +20,6 @@ offset = Vector2( 100, 0 )
 current = true
 process_mode = 0
 limit_left = 0
-limit_right = 1840
 limit_bottom = 1080
 limit_smoothed = true
 smoothing_enabled = true

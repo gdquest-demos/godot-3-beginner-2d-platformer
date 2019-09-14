@@ -1,4 +1,4 @@
-extends "res://src/actors/Actor.gd"
+extends Actor
 
 
 onready var stomp_area: Area2D = $StompArea2D
