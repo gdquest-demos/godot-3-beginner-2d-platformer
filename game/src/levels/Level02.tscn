@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://src/levels/LevelTest.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/levels/LevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/objects/Coin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/actors/Enemy.tscn" type="PackedScene" id=3]
 
