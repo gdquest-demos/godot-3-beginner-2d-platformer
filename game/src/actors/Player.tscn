@@ -15,6 +15,20 @@ script = ExtResource( 1 )
 speed = Vector2( 600, 1350 )
 stomp_impulse = 1400.0
 
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 100, 0 )
+current = true
+process_mode = 0
+limit_left = 0
+limit_right = 1840
+limit_bottom = 1080
+limit_smoothed = true
+smoothing_enabled = true
+drag_margin_left = 0.0
+drag_margin_right = 0.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 offset = Vector2( 0, -48.3333 )

@@ -34,17 +34,6 @@ tile_data = PoolIntArray( 0, 0, 0, 23, 0, 0, 65536, 0, 0, 65559, 0, 0, 131072, 0
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 885.108, 535.305 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
-limit_left = 0
-limit_right = 1840
-limit_bottom = 1080
-limit_smoothed = true
-drag_margin_left = 0.0
-drag_margin_right = 0.0
-editor_draw_limits = true
-editor_draw_drag_margin = true
-
 [node name="Portal2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1750, 800 )
 next_level_scene = "res://src/levels/Level02.tscn"
