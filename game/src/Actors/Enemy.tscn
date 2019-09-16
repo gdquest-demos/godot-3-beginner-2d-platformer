@@ -3,12 +3,11 @@
 [ext_resource path="res://src/Actors/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemy.png" type="Texture" id=2]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 34 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 40, 4.9953 )
+extents = Vector2( 40, 10.5328 )
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
@@ -36,4 +35,4 @@ position = Vector2( 0, -33 )
 rect = Rect2( -50, -33, 100, 66 )
 process_parent = true
 physics_process_parent = true
-[connection signal="body_entered" from="StompArea2D" to="." method="_on_StompArea2D_body_entered"]
+[connection signal="area_entered" from="StompArea2D" to="." method="_on_StompArea2D_area_entered"]
