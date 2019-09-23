@@ -15,7 +15,7 @@ extents = Vector2( 52.2752, 10.7155 )
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 4
 script = ExtResource( 1 )
-speed = Vector2( 600, 1350 )
+speed = Vector2( 700, 1350 )
 stomp_impulse = 1400.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
