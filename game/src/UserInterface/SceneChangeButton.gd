@@ -2,13 +2,13 @@ tool
 extends Button
 
 
-export var next_scene: PackedScene
+export(String, FILE) var next_scene_path: = ""
 
 
 func _on_button_up() -> void:
 	PlayerData.reset()
-	get_tree().change_scene_to(next_scene)
+	get_tree().change_scene(next_scene_path)
 
 
 func _get_configuration_warning() -> String:
-	return "The property Next Level can't be empty" if not next_scene else ""
+	return "The property Next Level can't be empty" if next_scene_path == "" else ""
