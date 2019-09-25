@@ -2,9 +2,9 @@
 
 [ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
-[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UserInterface/SceneChangeButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=5]
 
 [node name="MainScreen" type="Control"]
 anchor_right = 1.0
@@ -18,7 +18,7 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 2
 
-[node name="Title" parent="." instance=ExtResource( 3 )]
+[node name="Title" parent="." instance=ExtResource( 5 )]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -48,7 +48,7 @@ margin_bottom = 75.0
 text = "Play"
 next_scene_path = "res://src/Levels/Level01.tscn"
 
-[node name="QuitButton" parent="Menu" instance=ExtResource( 6 )]
+[node name="QuitButton" parent="Menu" instance=ExtResource( 3 )]
 margin_top = 79.0
 margin_right = 360.0
 margin_bottom = 154.0

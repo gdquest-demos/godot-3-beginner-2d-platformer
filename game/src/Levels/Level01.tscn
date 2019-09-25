@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Objects/Coin.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/background.png" type="Texture" id=6]
 [ext_resource path="res://assets/tileset.tres" type="TileSet" id=7]
 [ext_resource path="res://src/Levels/Level02.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/light.png" type="Texture" id=9]
 
 [node name="Level01" type="Node2D"]
 
@@ -133,5 +134,15 @@ position = Vector2( 6970, 230 )
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource( 3 )]
 position = Vector2( 7020, 800 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 1170, 450 )
+texture = ExtResource( 9 )
+texture_scale = 2.5
+range_layer_min = -100
+shadow_enabled = true
+shadow_gradient_length = 2.0
+shadow_filter = 3
+shadow_filter_smooth = 4.0
 
 [editable path="Player"]
