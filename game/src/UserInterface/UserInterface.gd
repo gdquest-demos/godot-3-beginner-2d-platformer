@@ -7,6 +7,8 @@ onready var pause_overlay: ColorRect = $PauseOverlay
 onready var title_label: Label = $PauseOverlay/Title
 onready var main_screen_button: Button = $PauseOverlay/PauseMenu/MainScreenButton
 
+const MESSAGE_DIED: = "You died"
+
 var paused: = false setget set_paused
 
 
@@ -18,11 +20,11 @@ func _ready() -> void:
 
 func _on_Player_died() -> void:
 	self.paused = true
-	title_label.text = "You died"
+	title_label.text = MESSAGE_DIED
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") and title_label.text != MESSAGE_DIED:
 		self.paused = not self.paused
 
 
