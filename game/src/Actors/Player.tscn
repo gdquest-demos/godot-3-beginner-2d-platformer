@@ -13,7 +13,7 @@ extents = Vector2( 40, 41 )
 extents = Vector2( 45.6478, 41.7715 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 52.2752, 10.7155 )
+extents = Vector2( 48, 8 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 4
