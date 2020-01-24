@@ -17,10 +17,10 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_top = -1.0
-margin_right = 1920.0
-margin_bottom = 1079.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 3 )
+expand = true
 
 [node name="Title" parent="." instance=ExtResource( 4 )]
 text = "Congratulations you finished the game!"
@@ -45,11 +45,11 @@ margin_bottom = 79.0
 
 [node name="PlayButton" parent="Menu" instance=ExtResource( 5 )]
 margin_right = 360.0
-margin_bottom = 75.0
+margin_bottom = 73.0
 text = "Play Again"
 next_scene_path = "res://src/Screens/MainScreen.tscn"
 
 [node name="QuitButton" parent="Menu" instance=ExtResource( 7 )]
-margin_top = 79.0
+margin_top = 81.0
 margin_right = 360.0
 margin_bottom = 154.0
