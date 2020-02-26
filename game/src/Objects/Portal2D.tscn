@@ -39,6 +39,7 @@ tracks/0/keys = {
 }
 
 [node name="Portal2D" type="Area2D"]
+pause_mode = 2
 monitorable = false
 collision_layer = 0
 script = ExtResource( 1 )
