@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 	_velocity = move_and_slide_with_snap(
 		_velocity, snap, FLOOR_NORMAL, true
 	)
+	die() if $".".position.y > 1080.0 else ""
 
 
 func get_direction() -> Vector2:
