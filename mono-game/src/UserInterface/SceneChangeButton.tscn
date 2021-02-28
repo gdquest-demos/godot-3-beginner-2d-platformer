@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/UserInterface/SceneChangeButton.cs" type="Script" id=1]
+
+[node name="SceneChangeButton" type="Button"]
+margin_right = 250.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="." to="." method="_on_SceneChangeButton_button_up"]
