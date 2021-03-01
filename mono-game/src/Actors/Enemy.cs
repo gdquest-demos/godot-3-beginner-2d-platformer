@@ -5,6 +5,7 @@ public class Enemy : Actor
 
     [Export]
     private int score = 100;
+
     public override void _Ready()
     {
         SetPhysicsProcess(false);
@@ -14,6 +15,7 @@ public class Enemy : Actor
 
     public override void _PhysicsProcess(float delta)
     {
+        base._PhysicsProcess(delta);
         _velocity.x *= IsOnWall() ? -1 : 1;
         _velocity.y = MoveAndSlide(_velocity, FLOOR_NORMAL).y;
     }
