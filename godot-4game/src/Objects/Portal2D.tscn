@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://b70phmlvqcuq5"]
+
+[ext_resource type="Script" path="res://src/Objects/Portal2D.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://8saih2ux80q6" path="res://assets/portal.png" id="2"]
+
+[sub_resource type="CapsuleShape2D" id="1"]
+radius = 66.93
+height = 201.24
+
+[sub_resource type="Animation" id="2"]
+resource_name = "START"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="3"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yvnhv"]
+_data = {
+"START": SubResource("2"),
+"fade_out": SubResource("3")
+}
+
+[node name="Portal2D" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.6)
+position = Vector2(0, -130)
+texture = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -130)
+shape = SubResource("1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 2
+autoplay = "START"
+libraries = {
+"": SubResource("AnimationLibrary_yvnhv")
+}
+
+[node name="TransitionLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="TransitionLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

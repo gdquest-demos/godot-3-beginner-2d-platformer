@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://du72i7p4mun7x"]
+
+[ext_resource type="Script" path="res://src/Actors/Enemy.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://gb7f1uep7fg5" path="res://assets/enemy.png" id="2"]
+
+[sub_resource type="OccluderPolygon2D" id="1"]
+polygon = PackedVector2Array(-0.0765228, 46.5714, -22.833, 46.189, -38.1315, 42.7468, -47.8843, 35.48, -52.8564, 27.0658, -54.5774, 18.2692, -54.0037, 5.07425, -48.6493, -13.0927, -35.8368, -32.0246, -20.9207, -43.116, -7.53454, -47.5144, 0.114708, -47.8968, 10.25, -46.9407, 21.5326, -42.3511, 32.624, -34.1282, 44.8628, -20.5507, 52.8945, -2.00131, 54.6156, 11.3849, 54.8069, 19.2254, 52.7033, 27.4483, 46.0102, 37.5836, 35.6837, 43.3205, 22.2975, 46.3802)
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(80, 68)
+
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(80, 21.0656)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -44.9277)
+texture = ExtResource("2")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite"]
+occluder = SubResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -34)
+shape = SubResource("2")
+
+[node name="StompArea2D" type="Area2D" parent="."]
+position = Vector2(0, -66.4549)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea2D"]
+position = Vector2(0, -4.93669)
+shape = SubResource("3")
+
+[node name="VisibilityEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(0, -33)
+rect = Rect2(-50, -33, 100, 66)
+
+[connection signal="area_entered" from="StompArea2D" to="." method="_on_StompArea2D_area_entered"]

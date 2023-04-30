@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://chul7y2soacyw"]
+
+[ext_resource type="Script" path="res://src/Actors/Player.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c32l5g5lnei56" path="res://assets/player.png" id="2"]
+
+[sub_resource type="OccluderPolygon2D" id="1"]
+polygon = PackedVector2Array(-47.7193, -80.1353, -45.552, -86.1556, -40.2541, -93.1392, -32.7889, -96.9922, 32.4715, -96.5106, 38.7327, -94.5841, 44.9938, -89.0453, 47.6427, -82.0618, 48.1244, -17.5238, 45.957, -10.2994, 41.6224, -5.00154, 33.9164, 0.296349, -31.1032, -0.18528, -39.5316, -4.2791, -45.0704, -10.0586, -47.4785, -16.5606)
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(80, 82)
+
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(91.2956, 83.543)
+
+[sub_resource type="RectangleShape2D" id="4"]
+size = Vector2(96, 16)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 14
+script = ExtResource("1")
+stomp_impulse = 1600.0
+speed = Vector2(700, 1350)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_bottom = 1080
+limit_smoothed = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2")
+offset = Vector2(0, -48.3333)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite"]
+occluder = SubResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -41)
+shape = SubResource("2")
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+modulate = Color(0.337255, 0.223529, 1, 1)
+position = Vector2(0, -48)
+shape = SubResource("3")
+
+[node name="StompDetector" type="Area2D" parent="."]
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector"]
+modulate = Color(0.337255, 0.223529, 1, 1)
+shape = SubResource("4")
+
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
+[connection signal="area_entered" from="StompDetector" to="." method="_on_StompDetector_area_entered"]
