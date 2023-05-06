@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://0p6kwh5x22ii"]
+
+[ext_resource type="Theme" path="res://assets/ui_theme.tres" id="1"]
+[ext_resource type="Script" path="res://src/Screens/EndScreen.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://d2yiedlquaaww" path="res://assets/background.png" id="3"]
+[ext_resource type="PackedScene" path="res://src/UserInterface/Title.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://d480j24lbe87" path="res://src/UserInterface/SceneChangeButton.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://src/UserInterface/QuitButton.tscn" id="7"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1")
+script = ExtResource("2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("3")
+expand_mode = 1
+
+[node name="Title" parent="." instance=ExtResource("4")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.5
+offset_top = -140.0
+offset_right = 170.5
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Congratulations you finished the game!"
+horizontal_alignment = 1
+
+[node name="Result" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.5
+offset_top = -104.0
+offset_right = 192.5
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Your final score is: %s and you died %s times!"
+horizontal_alignment = 1
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -37.0
+offset_right = 52.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" parent="Menu" instance=ExtResource("5")]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+text = "Play Again"
+next_scene_path = "res://src/Screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="Menu" instance=ExtResource("7")]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2

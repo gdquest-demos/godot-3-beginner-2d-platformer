@@ -18,6 +18,12 @@ This is the complete Open Source Project for our upcoming free beginner Godot 2D
 
 We also recommend reading the great [step-by-step guide](http://docs.godotengine.org/en/stable/getting_started/step_by_step/index.html) in the official Godot docs, if you haven't already.
 
+## Godot 4
+
+This course was originally made with Godot 3. Since then, there have been several changes to the engine code. If you'd like to run this project with Godot 4, a port is available in the `godot4-game` folder.
+
+*Currently, this port only exists for the GDScript version of the project. The C# version has yet to be ported.*
+
 ## How to get this free course
 
 The course will come out on our YouTube channel at the end of September. To get it, [subscribe to the GDQuest channel](https://youtube.com/c/gdquest) and click the notification bell to know when it is out.
