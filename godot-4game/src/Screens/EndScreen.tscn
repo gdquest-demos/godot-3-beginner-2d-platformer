@@ -71,9 +71,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PlayButton" parent="Menu" instance=ExtResource("5")]
+custom_minimum_size = Vector2(120, 50)
 layout_mode = 2
 text = "Play Again"
 next_scene_path = "res://src/Screens/MainScreen.tscn"
 
 [node name="QuitButton" parent="Menu" instance=ExtResource("7")]
+custom_minimum_size = Vector2(120, 50)
 layout_mode = 2

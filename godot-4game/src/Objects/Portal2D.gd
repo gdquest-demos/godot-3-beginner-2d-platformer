@@ -1,10 +1,9 @@
 @tool
 extends Area2D
 
+@export var next_scene: PackedScene
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
-
-@export var next_scene: PackedScene
 
 
 func _on_body_entered(_body: PhysicsBody2D):

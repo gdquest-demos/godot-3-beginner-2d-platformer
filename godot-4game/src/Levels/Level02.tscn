@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://lcbn2p40o5aj"]
 
-[ext_resource type="PackedScene" path="res://src/UserInterface/UserInterface.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://b53f2140eokmu" path="res://src/UserInterface/UserInterface.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://crklwymm1gnew" path="res://src/Objects/Coin.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://du72i7p4mun7x" path="res://src/Actors/Enemy.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://chul7y2soacyw" path="res://src/Actors/Player.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://src/Screens/EndScreen.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://0p6kwh5x22ii" path="res://src/Screens/EndScreen.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://b70phmlvqcuq5" path="res://src/Objects/Portal2D.tscn" id="6"]
 [ext_resource type="Texture2D" uid="uid://d2yiedlquaaww" path="res://assets/background.png" id="7"]
 [ext_resource type="TileSet" uid="uid://cb4wp4v1qumop" path="res://assets/tileset.tres" id="8"]
@@ -25,8 +25,6 @@ stretch_mode = 2
 [node name="InterfaceLayer" type="CanvasLayer" parent="."]
 
 [node name="UserInterface" parent="InterfaceLayer" instance=ExtResource("1")]
-layout_mode = 3
-anchors_preset = 15
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("8")

@@ -27,15 +27,14 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="Title" parent="." instance=ExtResource("3")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -89.5
-offset_top = 230.0
-offset_right = 89.5
-offset_bottom = 254.0
+layout_mode = 2
+anchor_right = 0.0
+offset_left = 351.0
+offset_top = 207.0
+offset_right = 801.0
+offset_bottom = 260.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
 text = "My First Godot Game"
 
 [node name="Menu" type="VBoxContainer" parent="."]
@@ -50,9 +49,11 @@ offset_bottom = 355.0
 grow_horizontal = 2
 
 [node name="PlayButton" parent="Menu" instance=ExtResource("4")]
+custom_minimum_size = Vector2(120, 50)
 layout_mode = 2
 text = "Play"
 next_scene_path = "res://src/Levels/Level01.tscn"
 
 [node name="QuitButton" parent="Menu" instance=ExtResource("5")]
+custom_minimum_size = Vector2(120, 50)
 layout_mode = 2
