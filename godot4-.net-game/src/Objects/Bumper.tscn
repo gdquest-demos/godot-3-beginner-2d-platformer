@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://boyxtdgh7eav"]
+
+[ext_resource type="Texture2D" uid="uid://clo1pi3ry3pp7" path="res://assets/bumper.png" id="1"]
+
+[sub_resource type="CapsuleShape2D" id="1"]
+radius = 24.8127
+height = 56.6346
+
+[node name="Bumper" type="Area2D"]
+collision_layer = 16
+
+[node name="bumper" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
+texture = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -46.3567)
+rotation = 1.57079
+shape = SubResource("1")

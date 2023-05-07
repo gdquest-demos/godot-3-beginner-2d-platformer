@@ -20,9 +20,7 @@ We also recommend reading the great [step-by-step guide](http://docs.godotengine
 
 ## Godot 4
 
-This course was originally made with Godot 3. Since then, there have been several changes to the engine code. If you'd like to run this project with Godot 4, a port is available in the `godot4-game` folder.
-
-*Currently, this port only exists for the GDScript version of the project. The C# version has yet to be ported.*
+This course was originally made with Godot 3. Since then, there have been several changes to the engine code. If you'd like to run this project with Godot 4, ports are available in `godot4-game` and `godot4-.net-game` folders.
 
 ## How to get this free course
 
